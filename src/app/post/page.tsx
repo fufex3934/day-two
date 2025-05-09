@@ -1,7 +1,11 @@
 import React from 'react'
 
 const Blog = async() => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts",{
+    next:{revalidate:3600}
+  }
+
+  );
   const posts = await res.json();
   return (
     <div>
